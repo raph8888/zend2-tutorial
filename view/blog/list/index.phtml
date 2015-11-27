@@ -1,0 +1,46 @@
+<!-- Filename: /module/Blog/view/blog/list/index.phtml -->
+
+<?php
+
+ $title = 'Blog';
+ $this->headTitle($title);
+ 
+ ?>
+ 
+ <p>
+     <a href="<?php echo 'http://zf2-tutorial/blog/add';?>">Add new Post</a>
+ </p>
+ 
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+
+<table class="table">
+
+<tr>
+     <th>Title</th>
+     <th>Text</th>
+     <th>&nbsp;</th>
+ </tr>
+ 
+ 
+ <?php foreach ($this->posts as $post): ?>
+     <tr>
+         
+     <td>
+         <a href="<?php echo 'http://zf2-tutorial/blog/';?><?= $post->getId() ?>">
+         <h2 id="post<?= $post->getId() ?>"><?= $post->getTitle() ?></h2>
+         </a>
+     </td>
+     
+     <td>
+         <h3><?= $post->getText() ?></h3>
+     </td>
+     
+       <td>
+         <a href="<?php echo 'http://zf2-tutorial/blog/edit/';?><?= $post->getId() ?>">Edit</a>
+         <a href="<?php echo 'http://zf2-tutorial/blog/delete/';?><?= $post->getId() ?>">Delete</a>
+     </td>
+      </tr>
+ <?php endforeach ?>
+ 
+ </table>

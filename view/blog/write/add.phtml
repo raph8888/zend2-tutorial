@@ -1,0 +1,20 @@
+<!-- Filename: /module/Blog/view/blog/write/add.phtml -->
+ <?php
+
+    $title = 'Add new Post';
+    $this->headTitle($title);
+    ?>
+
+   <h1><?= $this->escapeHtml($title); ?></h1>
+
+
+ <?php
+ $form = $this->form;
+ $form->setAttribute('action', $this->url());
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+
+ echo $this->formCollection($form);
+
+ echo $this->form()->closeTag();
